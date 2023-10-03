@@ -1,40 +1,39 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import Title from "./Title";
 import Subtitle from "./Subtitle";
 import Button from "./Button";
-import useGoogleSheets from "../lib/hooks/useAuthGoogleSheets";
 
 const ContactForm = () => {
-  const { isLoading, error, success, sendToGoogleSheets } = useGoogleSheets({
-    scriptUrl:
-      "https://script.google.com/macros/s/AKfycbzZM8zPOp_WfPbMnGoIjG1a2E8pYCZcAq3yk7-ZLdQzSxuATmAyac8SrE4TWSaZJpCR/exec",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [message, setMessage] = useState("");
 
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    message: "",
-  });
-
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Assuming formData matches the expected format in your Google Apps Script
-    await sendToGoogleSheets(formData);
+    let form = {
+      name,
+      email,
+      message,
+    };
 
-    // Handle success or error states here
-    if (success) {
-      // Data sent successfully
-      console.log("Data sent successfully");
-    } else {
-      // Error occurred
-      console.error("Error:", error);
-    }
-  };
+    const rawResponse = await fetch("/api/submit", {
+      method: "POST",
+      headers: {
+        Accept: "application/json",
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(form),
+    });
+    const content = await rawResponse.json();
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setFormData({ ...formData, [name]: value });
+    // print to screen
+    console.log(content);
+
+    // Reset the form fields
+    setMessage("");
+    setName("");
+    setEmail("");
   };
 
   return (
@@ -56,8 +55,8 @@ const ContactForm = () => {
             id="name"
             name="name"
             placeholder="Name"
-            value={formData.name}
-            onChange={handleChange}
+            value={name}
+            onChange={(e) => setName(e.target.value)}
             required
             className="w-full py-2 px-3 border-gray-600/30 bg-black/0 border-2 border-gray-200 text-white rounded-xl focus:outline-none focus:ring focus:border-blue-300"
           />
@@ -68,8 +67,8 @@ const ContactForm = () => {
             name="email"
             id="email"
             placeholder="Email"
-            value={formData.email}
-            onChange={handleChange}
+            value={email}
+            onChange={(e) => setEmail(e.target.value)}
             required
             className="w-full py-2 px-3 border-gray-600/30 bg-black/0 border-2 border-gray-200 text-white rounded-xl focus:outline-none focus:ring focus:border-blue-300"
           />
@@ -79,8 +78,8 @@ const ContactForm = () => {
             id="comment"
             name="message"
             placeholder="Comment"
-            value={formData.message}
-            onChange={handleChange}
+            value={message}
+            onChange={(e) => setMessage(e.target.value)}
             required
             className="w-full py-2 px-3 border-gray-600/30 bg-black/0 border-2 border-gray-200 text-white rounded-xl focus:outline-none focus:ring focus:border-blue-300"
           />
