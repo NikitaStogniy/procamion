@@ -11,7 +11,7 @@ const MobileMenu = () => {
   };
 
   return (
-    <div className="lg:hidden z-40">
+    <div className="flex w-[48px] h-[48px] mr-4 lg:hidden z-40">
       <button
         className="text-white p-2 focus:outline-none absolute z-50"
         onClick={toggleMenu}

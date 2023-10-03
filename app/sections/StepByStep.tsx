@@ -11,7 +11,7 @@ const StepByStep = () => {
         A STEP-BY-STEP APPROACH
       </div>
       <Title size={"large"}>Delivery, without the hassle</Title>
-      <div className="flex flex-col justify-center align-center items-center m-auto gap-8 my-20">
+      <div className="flex flex-col justify-center align-center items-center m-auto gap-8 my-20 w-full">
         <StepCard
           headline={"Shipper"}
           description={
@@ -36,21 +36,22 @@ const StepByStep = () => {
           level={"second"}
           step={3}
         />
-        <div className="gap-4 flex flex-col md:flex-row p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center">
-          <div className="m-auto max-w-[360px]">
-            <Title size={"large"}>Safe transactions</Title>
-            <Subtitle size={"large"}>
+        <div className="gap-4 flex  md:flex-row p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center w-full justify-center items-center align-center ">
+          <div className="max-w-[360px] m-auto">
+            <Title className="mb-4" size={"medium"}>
+              Safe transactions
+            </Title>
+            <Subtitle className="" size={"small"}>
               Make a contribution to the growth of the platform by leaving
               feedback about the carrier or sender. We are interested in you
               finding reliable partners for regular cooperation.
             </Subtitle>
           </div>
-          <Image src={"/MacBookImg.png"} width={668} height={384} alt={""} />
         </div>
         <StepCard headline={"Upcoming features"} level={"second"} step={4} />
-        <div className="gap-4 flex flex-col md:flex-row p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center">
+        <div className="gap-4 flex p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center w-full">
           <div className="m-auto max-w-[360px]">
-            <Title size={"large"}>Convenience</Title>
+            <Title size={"medium"}>Convenience</Title>
             <ul className="list-disc">
               <li>
                 <Subtitle size={"small"}>
@@ -66,12 +67,6 @@ const StepByStep = () => {
               </li>
             </ul>
           </div>
-          <Image
-            src={"/ConvenienceImg.png"}
-            width={520}
-            height={225}
-            alt={""}
-          />
         </div>
         <StepCard
           headline={"Finish"}

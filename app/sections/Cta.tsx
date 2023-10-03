@@ -22,7 +22,7 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
           <Subtitle className="text-zinc-400" size={"medium"}>
             Doubts remain? just look at these numbers..
           </Subtitle>
-          <div className="flex flex-row max-w-[500px] m-auto">
+          <div className="flex flex-row max-w-[500px] w-full gap-4 m-auto">
             <input
               type="email"
               id="email"
