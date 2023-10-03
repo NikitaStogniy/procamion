@@ -119,7 +119,7 @@ const FaqComponent: React.FC = () => {
           >
             <div className="flex flex-row justify-between items-center align-center">
               {" "}
-              <Title children={item.question} size={"small"} />
+              <Title size={"small"}>{item.question}</Title>
               {icon(item.isOpen)}{" "}
             </div>
             {item.isOpen && <p className="mt-2">{item.answer}</p>}{" "}

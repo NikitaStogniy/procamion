@@ -15,42 +15,35 @@ const Heading: React.FC<HeadingProps> = ({ togglePopup, isOpen }) => {
     <div className="max-w-[1250px] px-4 m-auto my-10 md:mt-[100px]">
       <div className="relative flex flex-col md:flex-row justify-between align-center items-center">
         <div className="flex flex-col gap-8 my-10">
-          <Title
-            children={
-              <>
-                <span className="text-black text-4xl font-medium md:text-7xl ">
-                  First
-                </span>
-                <span className="text-black text-4xl font-bold md:text-7xl ">
-                  {" "}
-                </span>
-                <span className="text-orange-400 text-4xl font-bold md:text-7xl ">
-                  marketplace
-                  <br />
-                  trucking
-                </span>
-                <span className="text-black text-4xl font-bold md:text-7xl ">
-                  {" "}
-                </span>
-                <span className="text-black text-4xl font-medium md:text-7xl ">
-                  in Morocco
-                </span>
-              </>
-            }
-            size={"large"}
-          />
-          <Subtitle
-            children={
-              <>
-                Now freight carriers will be less likely to travel empty.
-                <br /> And the shipper of goods will save their money on sending
-                things
-                <br /> from point A to point B
-              </>
-            }
-            className="text-neutral-500"
-            size={"large"}
-          />
+          <Title size={"large"}>
+            <>
+              <span className="text-black text-4xl font-medium md:text-7xl ">
+                First
+              </span>
+              <span className="text-black text-4xl font-bold md:text-7xl ">
+                {" "}
+              </span>
+              <span className="text-orange-400 text-4xl font-bold md:text-7xl ">
+                marketplace
+                <br />
+                trucking
+              </span>
+              <span className="text-black text-4xl font-bold md:text-7xl ">
+                {" "}
+              </span>
+              <span className="text-black text-4xl font-medium md:text-7xl ">
+                in Morocco
+              </span>
+            </>
+          </Title>
+          <Subtitle className="text-neutral-500" size={"large"}>
+            <>
+              Now freight carriers will be less likely to travel empty.
+              <br /> And the shipper of goods will save their money on sending
+              things
+              <br /> from point A to point B
+            </>
+          </Subtitle>
         </div>
         <div className="hidden  md:flex flex-row justify-center align-center items-center">
           <div className="p-4 border-2 border-gray-200 bg-gradient-to-b from-white to-stone-50 rounded-2xl max-w-[270px] flex flex-col justify-center align-center items-center gap-4">
@@ -73,14 +66,11 @@ const Heading: React.FC<HeadingProps> = ({ togglePopup, isOpen }) => {
                 stroke-linejoin="round"
               />
             </svg>
-            <Title children={"Choose your way"} size={"small"} />
-            <Subtitle
-              children={
-                "Improve your shipping income by finding new partners and as a result escape empty travelling"
-              }
-              size={"small"}
-              className="text-center"
-            />
+            <Title size={"small"}>Choose your way</Title>
+            <Subtitle size={"small"} className="text-center">
+              Improve your shipping income by finding new partners and as a
+              result escape empty travelling
+            </Subtitle>
           </div>
           <div className="bg-gradient-to-b from-white to-stone-50 rounded-r-xl border-2 border-gray-200 h-[250px] border-l-0 my-10 w-[30px] " />
         </div>

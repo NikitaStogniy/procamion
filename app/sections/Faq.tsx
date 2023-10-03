@@ -7,7 +7,7 @@ const Faq = () => {
   return (
     <div className="max-w-[1250px] my-20 px-4 m-auto flex flex-col justify-center align-center items-center">
       <div className="flex flex-row justify-center align-center items-center mb-10">
-        <Title children={"Frequently Asked Questions"} size={"large"} />{" "}
+        <Title size={"large"}>Frequently Asked Questions</Title>
         <svg
           width="44"
           height="44"

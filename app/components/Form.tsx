@@ -39,15 +39,9 @@ const ContactForm = () => {
   return (
     <div className="flex flex-col gap-4 justify-center align-center items-center">
       <Title children={"Contact us"} color="white" size={"large"} />
-      <Subtitle
-        children={
-          <>
-            Fill out this simple form <br /> for feedback
-          </>
-        }
-        className={"text-[#B0B0B0] text-center"}
-        size={"small"}
-      />
+      <Subtitle className={"text-[#B0B0B0] text-center"} size={"small"}>
+        Fill out this simple form <br /> for feedback
+      </Subtitle>
       <form className="w-full" onSubmit={handleSubmit}>
         <div className="rounded-xl mb-4">
           <input
@@ -86,11 +80,12 @@ const ContactForm = () => {
         </div>
         <div>
           <Button
-            children={"Submit"}
             type="submit"
             className="w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90"
             level={"primary"}
-          />
+          >
+            Submit
+          </Button>
         </div>
       </form>
     </div>

@@ -36,7 +36,9 @@ const StepCard: React.FC<StepCardProps> = ({
       </div>
       <div className="-mt-[20px] w-full md:w-[312px] px-5 pt-10 pb-5 bg-gradient-to-bl from-orange-50 to-stone-50 rounded-lg border border-stone-900 border-opacity-30 flex-col justify-center items-center gap-3.5 inline-flex">
         <div className="justify-center items-center gap-3.5 inline-flex">
-          <Title children={headline} size="medium" className="text-center" />
+          <Title size="medium" className="text-center">
+            {headline}
+          </Title>
         </div>
         <div className="self-stretch text-center text-black text-base font-normal leading-normal">
           {description}

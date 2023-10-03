@@ -19,11 +19,9 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
             Global mission: available
             <br /> sustainble transportation
           </Title>
-          <Subtitle
-            className="text-zinc-400"
-            children={"Doubts remain? just look at these numbers.."}
-            size={"medium"}
-          />
+          <Subtitle className="text-zinc-400" size={"medium"}>
+            Doubts remain? just look at these numbers..
+          </Subtitle>
           <div className="flex flex-row max-w-[500px] m-auto">
             <input
               type="email"
@@ -34,11 +32,12 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
             />
             <Button
               togglePopup={togglePopup}
-              children={"Submit"}
               type="submit"
               className="w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90"
               level={"primary"}
-            />
+            >
+              Submit
+            </Button>
           </div>
         </div>
       </div>
@@ -79,27 +78,27 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
             <Title children={"Procamion"} size="medium" />
           </div>
 
-          <Subtitle
-            className="text-center"
-            children={
-              "Оn average, the response time to the cargo card takes several hours, so feel free to add your cargo and probably today you will find your carrier"
-            }
-            size={"medium"}
-          />
+          <Subtitle className="text-center" size={"medium"}>
+            Оn average, the response time to the cargo card takes several hours,
+            so feel free to add your cargo and probably today you will find your
+            carrier
+          </Subtitle>
 
           <div className="flex flex-col md:flex-row gap-4 mt-10 w-full">
             <Button
               togglePopup={togglePopup}
               className="bg-black w-full text-white"
-              children={"Sign up"}
               level={"primary"}
-            />
+            >
+              Sign up
+            </Button>
             <Button
               togglePopup={togglePopup}
               className="bg-black/0 border-2 border-black w-full"
-              children={"Contact us"}
               level={"secondary"}
-            />
+            >
+              Contact us
+            </Button>
           </div>
         </div>
       </div>

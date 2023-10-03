@@ -9,7 +9,7 @@ const Benefits = () => {
       <div className="text-center text-neutral-500 text-xl font-medium  uppercase">
         environmental care
       </div>
-      <Title children={"CO2 emissions into the atmosphere"} size="medium" />
+      <Title size="medium">CO2 emissions into the atmosphere</Title>
       <div className="flex flex-col md:flex-row gap-4 mt-20 max-w-[1250px] w-full px-4">
         <BenefitCard
           title={""}

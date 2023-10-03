@@ -164,11 +164,12 @@ const HeadingForm: React.FC<HeadingFormProps> = ({ isOpen, togglePopup }) => {
           />
         </div>
         <Button
-          children={"Submit"}
           className=" w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px]"
           togglePopup={togglePopup}
           level={"primary"}
-        />
+        >
+          Submit
+        </Button>
       </div>
     </div>
   );
