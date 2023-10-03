@@ -95,12 +95,13 @@ const HeadingForm: React.FC<HeadingFormProps> = ({ isOpen, togglePopup }) => {
           />
         </div>
         <Button
-          children={"Submit"}
           type="submit"
           className=" w-[260px] bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px]"
           togglePopup={togglePopup}
           level={"primary"}
-        />
+        >
+          Submit
+        </Button>
       </form>
       <div className="flex md:hidden flex-col gap-2">
         <div className="border-2 border-gray-300 rounded-xl">

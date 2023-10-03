@@ -10,7 +10,7 @@ const StepByStep = () => {
       <div className="text-center text-neutral-500 text-xl ">
         A STEP-BY-STEP APPROACH
       </div>
-      <Title children={"Delivery, without the hassle"} size={"large"} />
+      <Title size={"large"}>Delivery, without the hassle</Title>
       <div className="flex flex-col justify-center align-center items-center m-auto gap-8 my-20">
         <StepCard
           headline={"Shipper"}
@@ -38,7 +38,7 @@ const StepByStep = () => {
         />
         <div className="gap-4 flex flex-col md:flex-row p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center">
           <div className="m-auto max-w-[360px]">
-            <Title children={"Safe transactions"} size={"large"} />
+            <Title size={"large"}>Safe transactions</Title>
             <Subtitle size={"large"}>
               Make a contribution to the growth of the platform by leaving
               feedback about the carrier or sender. We are interested in you
@@ -50,23 +50,19 @@ const StepByStep = () => {
         <StepCard headline={"Upcoming features"} level={"second"} step={4} />
         <div className="gap-4 flex flex-col md:flex-row p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center">
           <div className="m-auto max-w-[360px]">
-            <Title children={"Convenience"} size={"large"} />
+            <Title size={"large"}>Convenience</Title>
             <ul className="list-disc">
               <li>
-                <Subtitle
-                  size={"small"}
-                  children={
-                    "Add a comment to your card if you have any restrictions in order to find a more suitable partner for you"
-                  }
-                />
+                <Subtitle size={"small"}>
+                  Add a comment to your card if you have any restrictions in
+                  order to find a more suitable partner for you
+                </Subtitle>
               </li>
               <li>
-                <Subtitle
-                  size={"small"}
-                  children={
-                    "Сall up after confirmation of the response to discuss all the details of transportation"
-                  }
-                />
+                <Subtitle size={"small"}>
+                  Сall up after confirmation of the response to discuss all the
+                  details of transportation
+                </Subtitle>
               </li>
             </ul>
           </div>

@@ -75,7 +75,7 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
                 </defs>
               </svg>
             </div>
-            <Title children={"Procamion"} size="medium" />
+            <Title size="medium">Procamion</Title>
           </div>
 
           <Subtitle className="text-center" size={"medium"}>

@@ -38,7 +38,9 @@ const ContactForm = () => {
 
   return (
     <div className="flex flex-col gap-4 justify-center align-center items-center">
-      <Title children={"Contact us"} color="white" size={"large"} />
+      <Title color="white" size={"large"}>
+        Contact us
+      </Title>
       <Subtitle className={"text-[#B0B0B0] text-center"} size={"small"}>
         Fill out this simple form <br /> for feedback
       </Subtitle>
