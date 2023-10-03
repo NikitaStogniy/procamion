@@ -1,8 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
 import PopupComponent from "../components/PopupComponent";
-import { set } from "react-native-reanimated";
 
 interface PopupProps {
   isOpen: boolean;
