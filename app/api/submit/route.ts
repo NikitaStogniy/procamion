@@ -2,7 +2,7 @@
 
 import { NextApiRequest, NextApiResponse } from "next";
 import { google } from "googleapis";
-import { NextResponse } from "next/server";
+import { NextRequest, NextResponse } from "next/server";
 
 type SheetForm = {
   name: string;
@@ -11,12 +11,13 @@ type SheetForm = {
   message: string;
 };
 
-export async function POST(req: NextApiRequest, res: NextApiResponse) {
+export async function POST(req: NextRequest, res: NextResponse) {
   if (req.method !== "POST") {
-    return res.status(405).send({ message: "Only POST requests allowed" });
+    return NextResponse.json({ message: "Only POST requests allowed" });
   }
   console.log("test");
-  const body = req.body as SheetForm;
+  const request = await req.json();
+  const body = request.body as SheetForm;
 
   try {
     const auth = new google.auth.GoogleAuth({
