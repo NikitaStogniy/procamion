@@ -8,9 +8,20 @@ import HeadingForm from "./HeadingForm";
 interface HeadingProps {
   isOpen: boolean;
   togglePopup: (isOpen: boolean) => void; // Add an onClose callback prop to handle closing the popup
+  email: string;
+  setEmail: (email: string) => void;
+  isDone: boolean;
+  setIsDone: (done: boolean) => void;
 }
 
-const Heading: React.FC<HeadingProps> = ({ togglePopup, isOpen }) => {
+const Heading: React.FC<HeadingProps> = ({
+  togglePopup,
+  isOpen,
+  email,
+  setEmail,
+  isDone,
+  setIsDone,
+}) => {
   return (
     <div className="max-w-[1250px] px-4 m-auto my-20 md:mt-[100px]">
       <div className="relative flex flex-col md:flex-row justify-between align-center items-center">
@@ -164,7 +175,14 @@ const Heading: React.FC<HeadingProps> = ({ togglePopup, isOpen }) => {
         </svg>
       </div>
       <div className="flex flex-col">
-        <HeadingForm togglePopup={togglePopup} isOpen={isOpen} />
+        <HeadingForm
+          isOpen={isOpen}
+          togglePopup={togglePopup}
+          email={email}
+          setEmail={setEmail}
+          isDone={isDone}
+          setIsDone={setIsDone}
+        />
       </div>
     </div>
   );

@@ -12,18 +12,49 @@ import { useState } from "react";
 
 export default function Home() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [email, setEmail] = useState("");
+  const [isDone, setIsDone] = useState(false);
   return (
     <main>
-      <Popup isOpen={isOpen} setOpen={setIsOpen} />
+      <Popup
+        isOpen={isOpen}
+        setOpen={setIsOpen}
+        email={email}
+        setEmail={setEmail}
+        isDone={isDone}
+        setIsDone={setIsDone}
+      />
       <Menu />
-      <Heading isOpen={isOpen} togglePopup={setIsOpen} />
+      <Heading
+        isOpen={isOpen}
+        togglePopup={setIsOpen}
+        email={email}
+        setEmail={setEmail}
+        isDone={isDone}
+        setIsDone={setIsDone}
+      />
       <StepByStep />
       <Offer />
-      <Cta type="black" isOpen={isOpen} togglePopup={setIsOpen} />
+      <Cta
+        type="black"
+        isOpen={isOpen}
+        togglePopup={setIsOpen}
+        email={email}
+        setEmail={setEmail}
+        isDone={isDone}
+        setIsDone={setIsDone}
+      />
       <Benefits />
       <Faq />
-      <Cta type="yellow" isOpen={isOpen} togglePopup={setIsOpen} />
+      <Cta
+        type="yellow"
+        isOpen={isOpen}
+        togglePopup={setIsOpen}
+        email={email}
+        setEmail={setEmail}
+        isDone={isDone}
+        setIsDone={setIsDone}
+      />
       <Footer />
     </main>
   );

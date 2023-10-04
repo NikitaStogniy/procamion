@@ -3,18 +3,24 @@ import React, { use, useEffect } from "react";
 import Form from "./Form";
 
 interface PopupComponentProps {
-  showPopup: boolean;
-  onClose: (showPopup: boolean) => void; // Add an onClose callback prop to handle closing the popup
+  isOpen: boolean;
+  setOpen: (isOpen: boolean) => void; // Add an onClose callback prop to handle closing the popup
+  email: string;
+  setEmail: (email: string) => void;
+  isDone: boolean;
+  setIsDone: (done: boolean) => void;
 }
 
 const PopupComponent: React.FC<PopupComponentProps> = ({
-  showPopup,
-  onClose,
+  isOpen,
+  setOpen,
+  email,
+  setEmail,
+  isDone,
+  setIsDone,
 }) => {
-  useEffect(() => {
-    console.log("showPopup", showPopup);
-  }, [showPopup]);
-  if (!showPopup) {
+  useEffect(() => {}, [isOpen]);
+  if (!isOpen) {
     return null;
   }
   return (
@@ -27,7 +33,7 @@ const PopupComponent: React.FC<PopupComponentProps> = ({
         {/* Close button */}
         <button
           onClick={(event: React.MouseEvent<HTMLButtonElement>) =>
-            onClose(false)
+            setOpen(false)
           }
           className="absolute top-2 right-2 p-2 rounded-full hover:bg-gray-200 hover:text-gray-800 transition duration-300"
         >
@@ -48,7 +54,14 @@ const PopupComponent: React.FC<PopupComponentProps> = ({
         </button>
 
         {/* Popup content */}
-        <Form />
+        <Form
+          isOpen={isOpen}
+          setOpen={setOpen}
+          email={email}
+          setEmail={setEmail}
+          isDone={isDone}
+          setIsDone={setIsDone}
+        />
       </div>
     </div>
   );

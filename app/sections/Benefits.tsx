@@ -2,10 +2,14 @@ import React from "react";
 import Title from "../components/Title";
 import BenefitCard from "../components/BenefitCard";
 import ProgressBar from "../components/CircleProgressBar";
+import CircularProgressBar from "../components/CircleProgressBar";
 
 const Benefits = () => {
   return (
     <div className="m-auto max-w-[1250px] flex flex-col justify-center align-center items-center mt-20">
+      <div className="flex justify-center items-center mb-8">
+        <CircularProgressBar percent={20} />
+      </div>
       <div className="text-center text-neutral-500 text-xl font-medium  uppercase">
         environmental care
       </div>

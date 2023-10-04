@@ -3,40 +3,61 @@ import Title from "./Title";
 import Subtitle from "./Subtitle";
 import Button from "./Button";
 
-const ContactForm = () => {
+interface ContactFormProps {
+  isOpen: boolean;
+  setOpen: (isOpen: boolean) => void; // Add an onClose callback prop to handle closing the popup
+  email: string;
+  setEmail: (email: string) => void;
+  isDone: boolean;
+  setIsDone: (done: boolean) => void;
+}
+
+const ContactForm: React.FC<ContactFormProps> = ({
+  isOpen,
+  setOpen,
+  email,
+  setEmail,
+  isDone,
+  setIsDone,
+}) => {
   const [name, setName] = useState("");
-  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    let form = {
-      name,
+    // Create a JavaScript object containing the form data
+    const formData = {
       email,
+      name,
       message,
     };
 
-    const rawResponse = await fetch("/api/submit", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(form),
-    });
-    const content = await rawResponse.json();
+    try {
+      // Send the form data to the API route
+      const response = await fetch("/api/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // print to screen
-    console.log(content);
-
-    // Reset the form fields
-    setMessage("");
-    setName("");
-    setEmail("");
+      if (response.ok) {
+        // Handle success
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error
+        console.error("Form submission failed");
+      }
+      setIsDone(true);
+    } catch (error) {
+      setIsDone(true);
+      console.error(error);
+    }
   };
 
-  return (
+  return isDone === false ? (
     <div className="flex flex-col gap-4 justify-center align-center items-center">
       <Title color="white" size={"large"}>
         Contact us
@@ -71,7 +92,7 @@ const ContactForm = () => {
         </div>
         <div className="rounded-xl mb-4">
           <input
-            id="comment"
+            id="message"
             name="message"
             placeholder="Comment"
             value={message}
@@ -82,7 +103,6 @@ const ContactForm = () => {
         </div>
         <div>
           <Button
-            type="submit"
             className="w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90"
             level={"primary"}
           >
@@ -90,6 +110,15 @@ const ContactForm = () => {
           </Button>
         </div>
       </form>
+    </div>
+  ) : (
+    <div className="flex flex-col gap-4 p-8">
+      <Title color="white" size={"medium"}>
+        Thank you for your feedback!
+      </Title>
+      <Subtitle className={"text-[#B0B0B0] "} size={"small"}>
+        We will contact you shortly
+      </Subtitle>
     </div>
   );
 };

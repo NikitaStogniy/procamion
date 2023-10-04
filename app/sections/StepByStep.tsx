@@ -11,7 +11,7 @@ const StepByStep = () => {
         A STEP-BY-STEP APPROACH
       </div>
       <Title size={"large"}>Delivery, without the hassle</Title>
-      <div className="flex flex-col justify-center align-center items-center m-auto gap-8 my-20 w-full">
+      <div className="flex flex-col justify-center align-center items-center m-auto gap-8 my-20 w-full relative h-full">
         <StepCard
           headline={"Shipper"}
           description={
@@ -74,7 +74,8 @@ const StepByStep = () => {
           level={"first"}
           step={2}
         />
-        <div className="border-2 border-dashed w-[1px] border-[#F59929] h-[160%] absolute -z-10" />
+
+        <div className="absolute inset-0 flex items-center justify-center w-[2px] m-auto -z-40 border-dashed border-2 border-orange-500"></div>
       </div>
     </div>
   );

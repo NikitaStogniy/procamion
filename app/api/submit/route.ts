@@ -1,55 +1,46 @@
-// app/api/submitFormData.ts
-
+// Import any necessary libraries if needed
 import { NextApiRequest, NextApiResponse } from "next";
-import { google } from "googleapis";
-import { NextRequest, NextResponse } from "next/server";
-
-type SheetForm = {
-  name: string;
-  email: string;
-  phone: string;
-  message: string;
-};
+import { NextResponse, NextRequest } from "next/server";
 
 export async function POST(req: NextRequest, res: NextResponse) {
-  if (req.method !== "POST") {
-    return NextResponse.json({ message: "Only POST requests allowed" });
-  }
-  console.log("test");
-  const request = await req.json();
-  const body = request.body as SheetForm;
+  if (req.method === "POST") {
+    try {
+      const body = await req.json();
+      const email = body.email;
+      const name = body.name;
+      const message = body.message;
 
-  try {
-    const auth = new google.auth.GoogleAuth({
-      credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
-        private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-      },
-      scopes: [
-        "https://www.googleapis.com/auth/drive",
-        "https://www.googleapis.com/auth/drive.file",
-        "https://www.googleapis.com/auth/spreadsheets",
-      ],
-    });
+      // Replace this URL with your Google Apps Script web app URL
+      const scriptUrl =
+        "https://script.google.com/macros/s/AKfycbyUN6qaxo8UOldcwjDx73Ax3Lqb19CRRBnkU4jcvd_P1de95nLSo-NBK59fh-mUR1ef/exec";
 
-    const sheets = google.sheets({
-      auth,
-      version: "v4",
-    });
+      // Send the form data to the Google Sheets script
+      const response = await fetch(scriptUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ email, name, message }), // Include other fields if needed
+      });
 
-    const response = await sheets.spreadsheets.values.append({
-      spreadsheetId: process.env.GOOGLE_SHEET_ID,
-      range: "A1:C1",
-      valueInputOption: "USER_ENTERED",
-      requestBody: {
-        values: [[body.name, body.email, body.message]],
-      },
-    });
-
-    return NextResponse.json({
-      data: response.data,
-    });
-  } catch (e) {
-    return NextResponse.json({ error: e });
+      if (response.ok) {
+        // Handle success
+        NextResponse.json(
+          { message: "Form submitted successfully" },
+          { status: 200 }
+        );
+      } else {
+        // Handle error
+        NextResponse.json(
+          { message: "Form submission failed" },
+          { status: 500 }
+        );
+      }
+    } catch (error) {
+      console.error(error);
+      NextResponse.json({ message: "Internal Error", error }, { status: 500 });
+    }
+  } else {
+    NextResponse.json({ message: "Method not allowed" }, { status: 405 });
   }
 }

@@ -8,9 +8,20 @@ interface CtaProps {
   type: "black" | "yellow";
   isOpen: boolean;
   togglePopup: (isOpen: boolean) => void; // Add an onClose callback prop to handle closing the popup
+  email: string;
+  setEmail: (email: string) => void;
+  isDone: boolean;
+  setIsDone: (done: boolean) => void;
 }
 
-const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
+const Cta: React.FC<CtaProps> = ({
+  type,
+  togglePopup,
+  email,
+  setEmail,
+  isDone,
+  setIsDone,
+}) => {
   if (type === "black") {
     return (
       <div className="bg-black">
@@ -26,13 +37,14 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
             <input
               type="email"
               id="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               placeholder="Email"
               required
               className="w-full py-2 px-3 border-gray-600/30 bg-black/0 border-2 border-gray-200 text-white rounded-xl focus:outline-none focus:ring focus:border-blue-300"
             />
             <Button
               togglePopup={togglePopup}
-              type="submit"
               className="w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90"
               level={"primary"}
             >
@@ -85,13 +97,6 @@ const Cta: React.FC<CtaProps> = ({ type, togglePopup }) => {
           </Subtitle>
 
           <div className="flex flex-col md:flex-row gap-4 mt-10 w-full">
-            <Button
-              togglePopup={togglePopup}
-              className="bg-black w-full text-white"
-              level={"primary"}
-            >
-              Sign up
-            </Button>
             <Button
               togglePopup={togglePopup}
               className="bg-black/0 border-2 border-black w-full"

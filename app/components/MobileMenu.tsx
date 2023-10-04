@@ -16,28 +16,7 @@ const MobileMenu = () => {
         className="text-white p-2 focus:outline-none absolute z-50"
         onClick={toggleMenu}
       >
-        {isOpen ? (
-          <div>
-            <svg
-              width="44"
-              height="44"
-              viewBox="0 0 44 44"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M13.8682 30.1316L30.1316 13.8681"
-                stroke="white"
-                stroke-linecap="round"
-              />
-              <path
-                d="M13.8682 13.8682L30.1316 30.1316"
-                stroke="white"
-                stroke-linecap="round"
-              />
-            </svg>
-          </div>
-        ) : (
+        {!isOpen && (
           <div>
             <svg
               width="44"
@@ -54,18 +33,18 @@ const MobileMenu = () => {
         )}
       </button>
       {isOpen && (
-        <div className="bg-black absolute top-0 left-0 w-full h-screen flex flex-col items-center">
-          <div className="p-4">
-            <Link href="/">
-              <Image src="/Logo.png" width={273} height={35} alt="Logo" />
-            </Link>
+        <div
+          onClick={toggleMenu}
+          className="bg-black/30 absolute w-full h-screen top-0 left-0 backdrop-blur-lg"
+        >
+          <div className="bg-[#1D1D1B] absolute top-8 right-0 w-fit h-fit px-8 py-4 m-4 rounded-xl flex flex-col items-center">
+            <nav className="space-y-4 text-white flex flex-col">
+              <Link href="#">Advantages</Link>
+              <Link href="#">Numbers</Link>
+              <Link href="#">FAQ</Link>
+              {/* Добавьте другие ссылки, если необходимо */}
+            </nav>
           </div>
-          <nav className="space-y-4 mt-8 text-white flex flex-col">
-            <Link href="#">Advantages</Link>
-            <Link href="#">Numbers</Link>
-            <Link href="#">FAQ</Link>
-            {/* Добавьте другие ссылки, если необходимо */}
-          </nav>
         </div>
       )}
     </div>
