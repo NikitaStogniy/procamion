@@ -18,9 +18,9 @@ const BenefitCard: React.FC<BenefitCardProps> = ({
   textSecond,
 }) => {
   return (
-    <div className="w-full">
+    <div className="w-full h-full">
       <Title size={"small"}>{title}</Title>
-      <div className="bg-[#252523] rounded-xl p-4">
+      <div className="bg-[#252523]  h-full rounded-xl p-4">
         <div className="float-right -ml-20">
           <div className="flex flex-col gap-2">
             <div className="flex flex-row gap-2">

@@ -39,10 +39,10 @@ const MobileMenu = () => {
         >
           <div className="bg-[#1D1D1B] absolute top-8 right-0 w-fit h-fit px-8 py-4 m-4 rounded-xl flex flex-col items-center">
             <nav className="space-y-4 text-white flex flex-col">
-              <Link href="#">Advantages</Link>
-              <Link href="#">Numbers</Link>
-              <Link href="#">FAQ</Link>
-              {/* Добавьте другие ссылки, если необходимо */}
+              <Link href="#advantages">Advantages</Link>
+              <Link href="#numbers">Numbers</Link>
+              <Link href="#faq">FAQ</Link>
+              <div className="text-white/30">Language (En)</div>
             </nav>
           </div>
         </div>

@@ -13,7 +13,9 @@
     "googleapis": "^126.0.1",
     "next": "latest",
     "react": "latest",
+    "react-circular-progressbar": "^2.1.0",
     "react-dom": "latest",
+    "react-intersection-observer": "^9.5.2",
     "use-count-up": "^3.0.1"
   },
   "devDependencies": {

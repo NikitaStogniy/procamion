@@ -22,10 +22,22 @@ const Menu = () => {
         {isMobile ? (
           <MobileMenu />
         ) : (
-          <div className="space-x-6 text-white">
-            <Link href="#">Advantages</Link>
-            <Link href="#">Numbers</Link>
-            <Link href="#">FAQ</Link>
+          <div className="space-x-6 text-white relative lg:absolute text-center w-full lg:w-[82%]">
+            <Link href="#advantages">Advantages</Link>
+            <Link href="#numbers">Numbers</Link>
+            <Link href="#faq">FAQ</Link>
+          </div>
+        )}
+        {!isMobile && (
+          <div className="text-white flex flex-row justify-center items-center align-center gap-2">
+            <Image
+              className="rounded-full"
+              width={40}
+              height={40}
+              src={"/en.jpg"}
+              alt={"en"}
+            />
+            EN
           </div>
         )}
       </div>

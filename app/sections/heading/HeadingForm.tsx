@@ -41,7 +41,7 @@ const HeadingForm: React.FC<HeadingFormProps> = ({
           />
           <Button
             onClick={() => togglePopup}
-            className=" w-[260px] bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px]"
+            className=" bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px] w-full md:w-[260px] "
             togglePopup={togglePopup}
             level={"primary"}
           >

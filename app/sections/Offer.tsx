@@ -1,7 +1,7 @@
 import React from "react";
 import Title from "../components/Title";
 import Subtitle from "../components/Subtitle";
-import CircularProgressBar from "../components/CircleProgressBar";
+import CircularProgressBar from "../components/CircleProgressBar/CircleProgressBar";
 
 const Offer = () => {
   return (

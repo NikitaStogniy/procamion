@@ -3,8 +3,14 @@ import Title from "../components/Title";
 import StepCard from "../components/StepCard";
 import Image from "next/image";
 import Subtitle from "../components/Subtitle";
+import {
+  ScreenSizeCategory,
+  useScreenSizeCategory,
+} from "../lib/hooks/useScreenSize";
 
 const StepByStep = () => {
+  const screenSizeCategory = useScreenSizeCategory();
+  const isMobile = screenSizeCategory === ScreenSizeCategory.Mobile;
   return (
     <div className="max-w-[1250px] px-4 flex flex-col justify-center align-center items-center m-auto">
       <div className="text-center text-neutral-500 text-xl ">
@@ -52,14 +58,14 @@ const StepByStep = () => {
         <div className="gap-4 flex p-14 bg-gradient-to-b from-white to-stone-50 rounded-2xl border border-stone-900 border-opacity-30 justify-between items-center w-full">
           <div className="m-auto max-w-[360px]">
             <Title size={"medium"}>Convenience</Title>
-            <ul className="list-disc">
-              <li>
+            <ul className="list-none mt-[8px]">
+              <li className="mb-2 relative pl-5 before:content-[''] before:w-2 before:h-2 before:bg-yellow-500 before:absolute before:left-0 before:top-[10px] before:-translate-y-1/2 before:rounded-full">
                 <Subtitle size={"small"}>
                   Add a comment to your card if you have any restrictions in
                   order to find a more suitable partner for you
                 </Subtitle>
               </li>
-              <li>
+              <li className="mb-2 relative pl-5 before:content-[''] before:w-2 before:h-2 before:bg-yellow-500 before:absolute before:left-0 before:top-[10px] before:-translate-y-1/2 before:rounded-full">
                 <Subtitle size={"small"}>
                   Сall up after confirmation of the response to discuss all the
                   details of transportation
@@ -68,14 +74,27 @@ const StepByStep = () => {
             </ul>
           </div>
         </div>
-        <StepCard
-          headline={"Finish"}
-          description={"We delivered everything! "}
-          level={"first"}
-          step={2}
-        />
+        {isMobile ? (
+          <div className="w-full bg-no-repeat bg-top pt-8 mx-auto flex justify-center items-center bg-[url('/starsMobile.svg')]">
+            <StepCard
+              headline={"Finish"}
+              description={"We delivered everything! "}
+              level={"first"}
+              step={2}
+            />
+          </div>
+        ) : (
+          <div className="w-full bg-no-repeat bg-center mx-auto flex justify-center items-center bg-[url('/starsDesktop.svg')]">
+            <StepCard
+              headline={"Finish"}
+              description={"We delivered everything! "}
+              level={"first"}
+              step={2}
+            />
+          </div>
+        )}
 
-        <div className="absolute inset-0 flex items-center justify-center w-[2px] m-auto -z-40 border-dashed border-2 border-orange-500"></div>
+        <div className="h-[77%] md:h-[100%] absolute inset-0 flex items-center justify-center w-[2px] m-auto -z-40 border-dashed border-2 border-orange-500"></div>
       </div>
     </div>
   );
