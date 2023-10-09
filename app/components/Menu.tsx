@@ -32,8 +32,8 @@ const Menu = () => {
           <div className="text-white flex flex-row justify-center items-center align-center gap-2">
             <Image
               className="rounded-full"
-              width={40}
-              height={40}
+              width={24}
+              height={24}
               src={"/en.jpg"}
               alt={"en"}
             />

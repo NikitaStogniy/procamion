@@ -25,6 +25,38 @@ const HeadingForm: React.FC<HeadingFormProps> = ({
   setIsDone,
   setEmail,
 }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Create a JavaScript object containing the form data
+    const formData = {
+      email,
+    };
+
+    try {
+      // Send the form data to the API route
+      const response = await fetch("/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error
+        console.error("Form submission failed");
+      }
+      setIsDone(true);
+    } catch (error) {
+      setIsDone(true);
+      console.error(error);
+    }
+  };
+
   return (
     <div className="flex flex-col gap-4">
       <div className="flex flex-col gap-4 mt-4">
@@ -32,21 +64,27 @@ const HeadingForm: React.FC<HeadingFormProps> = ({
           <b>Subsribe newsletter</b>
         </Subtitle>
         <div className="flex flex-col md:flex-row gap-4 border-0 w-full">
-          <input
-            className="border-2 border-gray-200 w-full max-w-[400px] h-[48px] px-4 rounded-xl"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-          <Button
-            onClick={() => togglePopup}
-            className=" bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px] w-full md:w-[260px] "
-            togglePopup={togglePopup}
-            level={"primary"}
+          <form
+            className="flex flex-col gap-4 justify-center align-center items-center"
+            onSubmit={handleSubmit}
           >
-            Submit
-          </Button>
+            <input
+              className="border-2 border-gray-200 w-full max-w-[400px] h-[48px] px-4 rounded-xl"
+              type="email"
+              name="email"
+              id="email"
+              placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <Button
+              type="submit"
+              className=" bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90 w-[160px] w-full md:w-[160px]  max-w-[400px]"
+              level={"primary"}
+            >
+              Send
+            </Button>
+          </form>
         </div>
       </div>
     </div>

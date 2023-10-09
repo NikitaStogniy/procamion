@@ -12,7 +12,10 @@ const Benefits = () => {
   const screenSizeCategory = useScreenSizeCategory();
   const isMobile = screenSizeCategory === ScreenSizeCategory.Mobile;
   return (
-    <div className="m-auto max-w-[1250px] flex flex-col justify-center align-center items-center mt-20">
+    <div
+      id="numbers"
+      className="m-auto max-w-[1250px] flex flex-col justify-center align-center items-center mt-20"
+    >
       <div className="flex justify-center items-center mb-8">
         {!isMobile && <CircularProgressBar />}
       </div>

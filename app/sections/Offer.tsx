@@ -5,7 +5,7 @@ import CircularProgressBar from "../components/CircleProgressBar/CircleProgressB
 
 const Offer = () => {
   return (
-    <div className="w-full bg-[#F5F5F5] py-20">
+    <div id="advantages" className="w-full bg-[#F5F5F5] py-20">
       <div className="max-w-[1250px] py-20 flex flex-col m-auto justify-center align-center items-center gap-10 p-4 md:p-8">
         <Title className={"text-center "} size={"large"}>
           Choose your way
