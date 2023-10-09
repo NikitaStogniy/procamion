@@ -55,6 +55,29 @@ const ContactForm: React.FC<ContactFormProps> = ({
       setIsDone(true);
       console.error(error);
     }
+
+    try {
+      // Send the form data to the API route
+      const response = await fetch("/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error
+        console.error("Form submission failed");
+      }
+      setIsDone(true);
+    } catch (error) {
+      setIsDone(true);
+      console.error(error);
+    }
   };
 
   return isDone === false ? (

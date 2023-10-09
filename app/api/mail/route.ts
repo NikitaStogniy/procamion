@@ -10,7 +10,7 @@ export async function POST(req: NextRequest, res: NextResponse) {
 
       // Replace this URL with your Google Apps Script web app URL
       const scriptUrl =
-        "https://script.google.com/macros/s/AKfycbyQE3c548h_s_mw_1-11zwlcvJbXEmE9m7z0f0YUXeVeYKiMucCu4HnsL2fI42CQj-3/exec";
+        "https://script.google.com/macros/s/AKfycbyl5Tf-BV_sIMlzoLsDdDn5TjJQldRf-cD_xX7nw9bP-Bhw_FNcaJ5ya5men7_8-EKYpw/exec";
 
       // Send the form data to the Google Sheets script
       const response = await fetch(scriptUrl, {

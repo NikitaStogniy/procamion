@@ -22,6 +22,38 @@ const Cta: React.FC<CtaProps> = ({
   isDone,
   setIsDone,
 }) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    // Create a JavaScript object containing the form data
+    const formData = {
+      email,
+    };
+
+    try {
+      // Send the form data to the API route
+      const response = await fetch("/api/mail", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        // Handle success
+        console.log("Form submitted successfully");
+      } else {
+        // Handle error
+        console.error("Form submission failed");
+      }
+      setIsDone(true);
+    } catch (error) {
+      setIsDone(true);
+      console.error(error);
+    }
+  };
+
   if (type === "black") {
     return (
       <div className="bg-black">
@@ -33,7 +65,11 @@ const Cta: React.FC<CtaProps> = ({
           <Subtitle className="text-zinc-400" size={"medium"}>
             Doubts remain? just look at these numbers..
           </Subtitle>
-          <div className="flex flex-row max-w-[500px] w-full gap-4 m-auto">
+
+          <form
+            className="flex flex-row max-w-[500px] w-full gap-4 m-auto"
+            onSubmit={handleSubmit}
+          >
             <input
               type="email"
               id="email"
@@ -44,13 +80,13 @@ const Cta: React.FC<CtaProps> = ({
               className="w-full py-2 px-3 border-gray-600/30 bg-black/0 border-2 border-gray-200 text-white rounded-xl focus:outline-none focus:ring focus:border-blue-300"
             />
             <Button
-              togglePopup={togglePopup}
+              type="submit"
               className="w-full bg-gradient-to-b from-orange-400 to-amber-500 color-white text-white hover:opacity-90"
               level={"primary"}
             >
-              Submit
+              Send
             </Button>
-          </div>
+          </form>
         </div>
       </div>
     );

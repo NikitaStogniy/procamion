@@ -65,7 +65,7 @@ const HeadingForm: React.FC<HeadingFormProps> = ({
         </Subtitle>
         <div className="flex flex-col md:flex-row gap-4 border-0 w-full">
           <form
-            className="flex flex-col gap-4 justify-center align-center items-center"
+            className="flex flex-col md:flex-row gap-4 border-0 w-full"
             onSubmit={handleSubmit}
           >
             <input
