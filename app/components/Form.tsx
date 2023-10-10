@@ -50,9 +50,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
         // Handle error
         console.error("Form submission failed");
       }
-      setIsDone(true);
+
+      setName("");
+      setEmail("");
+      setMessage("");
+      setOpen(false);
     } catch (error) {
-      setIsDone(true);
+      setName("");
+      setEmail("");
+      setMessage("");
       console.error(error);
     }
 
@@ -73,9 +79,15 @@ const ContactForm: React.FC<ContactFormProps> = ({
         // Handle error
         console.error("Form submission failed");
       }
-      setIsDone(true);
+
+      setName("");
+      setEmail("");
+      setMessage("");
     } catch (error) {
-      setIsDone(true);
+      setName("");
+      setEmail("");
+      setMessage("");
+
       console.error(error);
     }
   };

@@ -47,9 +47,9 @@ const Cta: React.FC<CtaProps> = ({
         // Handle error
         console.error("Form submission failed");
       }
-      setIsDone(true);
+      setEmail("");
     } catch (error) {
-      setIsDone(true);
+      setEmail("");
       console.error(error);
     }
   };
