@@ -36,7 +36,7 @@ const AnimatedCircularProgressBar = () => {
           backgroundColor: "#3e98c7",
         })}
         value={value}
-        text={`-20%`}
+        text={`-50%`}
       />
     </div>
   );
