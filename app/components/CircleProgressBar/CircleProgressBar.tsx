@@ -13,7 +13,7 @@ const AnimatedCircularProgressBar = () => {
   useEffect(() => {
     if (inView) {
       // Set the value to the desired percentage (e.g., 20%)
-      setValue(20);
+      setValue(50);
     }
   }, [inView]);
 
